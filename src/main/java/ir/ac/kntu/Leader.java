@@ -15,7 +15,6 @@ public class Leader {
     private boolean isMarried;
     private boolean isBusy = false;
 
-
     public Leader(){}
 
     public Leader (String name,String lastName,Integer nationalCode,Integer identityCode,Date birthDate,Date recruitmentDate,boolean isMarried,boolean isBusy) {
