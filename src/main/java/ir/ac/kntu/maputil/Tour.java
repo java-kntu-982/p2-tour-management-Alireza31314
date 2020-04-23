@@ -115,6 +115,8 @@ public class Tour {
     }
 
 
+
+
     public static void edit(Tour inputTour) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Which field you want to edit?\n1-Name\n2-Length of tour\n3-Price of tour\n4-Maximum attenders\n5-Minimum attenders"+
@@ -157,6 +159,94 @@ public class Tour {
                 } else if (boo.equals("N")) {
                     inputTour.isAerial = false;
                 }
+                break;
+        }
+    }
+
+
+    public static void toursPublicMenu (ArrayList<Tour> tours) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("\n\nThis is tour menu :\nEnter 1 to see tours\nEnter 2 to search a tour\nEnter 3 to see the region's menu");
+        int input = sc.nextInt();
+        switch (input) {
+            case 1:
+                for (int i = 0; i < tours.size(); i++) {
+                    System.out.println((i+1) + "-" + tours.get(i).toString());
+                }
+                break;
+            case 2:
+                System.out.println("By which field you want to search tour?\n1-Length of tour\n2-Maximum number of attenders\n3-Minimum number of attenders\n4-A specific price\n" +
+                        "5-Price below an amount\n6-Price above an amount\n7-Price between two amounts\n");
+                int serInput = sc.nextInt();
+                switch (serInput) {
+                    case 1:
+                        System.out.println("Enter length :");
+                        int len = sc.nextInt();
+                        for (int i = 0; i < tours.size(); i++) {
+                            if (tours.get(i).getLength() == len) {
+                                System.out.println(tours.get(i));
+                            }
+                        }
+                        break;
+                    case 2:
+                        System.out.println("Enter maximum attenders :");
+                        int maxi = sc.nextInt();
+                        for (int i = 0; i < tours.size(); i++) {
+                            if (tours.get(i).getMaxAttenders() == maxi) {
+                                System.out.println(tours.get(i));
+                            }
+                        }
+                        break;
+                    case 3:
+                        System.out.println("Enter maximum attenders :");
+                        int mini = sc.nextInt();
+                        for (int i = 0; i < tours.size(); i++) {
+                            if (tours.get(i).getMinAttenders() == mini) {
+                                System.out.println(tours.get(i));
+                            }
+                        }
+                        break;
+                    case 4:
+                        System.out.println("Enter a price :");
+                        int pri = sc.nextInt();
+                        for (int i = 0; i < tours.size(); i++) {
+                            if (tours.get(i).getPrice() == pri) {
+                                System.out.println(tours.get(i));
+                            }
+                        }
+                        break;
+                    case 5:
+                        System.out.println("Enter the price :");
+                        int upPrice = sc.nextInt();
+                        for (int i = 0; i < tours.size(); i++) {
+                            if (tours.get(i).getPrice() < upPrice) {
+                                System.out.println(tours.get(i));
+                            }
+                        }
+                        break;
+                    case 6:
+                        System.out.println("Enter the price :");
+                        int lowPrice = sc.nextInt();
+                        for (int i = 0; i < tours.size(); i++) {
+                            if (tours.get(i).getPrice() > lowPrice) {
+                                System.out.println(tours.get(i));
+                            }
+                        }
+                        break;
+                    case 7:
+                        System.out.println("Enter the upper line of age :");
+                        int upp = sc.nextInt();
+                        System.out.println("Enter the lower line of age :");
+                        int low = sc.nextInt();
+                        for (int i = 0; i < tours.size(); i++) {
+                            if ((tours.get(i).getPrice() > low) && (tours.get(i).getPrice() < upp)) {
+                                System.out.println(tours.get(i));
+                            }
+                        }
+                        break;
+                }
+                break;
+            case 3:
                 break;
         }
     }
@@ -297,6 +387,7 @@ public class Tour {
                 break;
             case 6:
                 System.out.println("Enter 1 to add a region to a tour");
+                /////////////////////////// TODO
                 break;
         }
     }
