@@ -9,6 +9,8 @@ public class Employee extends User {
     private String passWord = "employee";
     private String email;
     private String mobile;
+    private Date recruitmentDate;
+    private int salary;
 
     public void editEmployee (Employee employee) {
         Scanner sc = new Scanner(System.in);
@@ -24,9 +26,21 @@ public class Employee extends User {
         System.out.println("Enter the new mobile phone :");
         String newMob = sc.next();
         setMobile(newMob);
+        System.out.println("Enter the salary :");
+        int salary = sc.nextInt();
+        setSalary(salary);
+        System.out.println("Enter the date of recruitment :\nEnter year :");
+        int year = sc.nextInt();
+        System.out.println("Enter month :");
+        int month = sc.nextInt();
+        System.out.println("Enter day :");
+        int day = sc.nextInt();
+        Date date = new Date(year,month,day);
+        setRecruitmentDate(date);
         System.out.println("Successfully Done !");
     }
 
+    @Override
     public String getUserName() {
         return userName;
     }
@@ -63,4 +77,19 @@ public class Employee extends User {
         }
     }
 
+    public Date getRecruitmentDate() {
+        return recruitmentDate;
+    }
+
+    public void setRecruitmentDate(Date recruitmentDate) {
+        this.recruitmentDate = recruitmentDate;
+    }
+
+    public int getSalary() {
+        return salary;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
 }

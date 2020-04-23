@@ -95,6 +95,7 @@ public class Leader extends User {
         return isBusy;
     }
 
+    @Override
     public String getUserName() {
         return userName;
     }

@@ -14,10 +14,9 @@ public class Tour {
     private String whereStarts;
     private String destination;
     private boolean isAerial;
-    public Regions regions;
+    private static Regions regions;
 
-    public Tour() {
-    }
+    public Tour() {}
 
     public Tour(String name,Integer length, Integer price, Integer maxAttenders, Integer minAttenders, String whereStarts, String destination, boolean isAerial) {
         setName(name);
@@ -247,6 +246,20 @@ public class Tour {
                 }
                 break;
             case 3:
+                System.out.println("Enter 1 to add a region to a tour\nEnter 2 to see regions");
+                int inp = sc.nextInt();
+                switch (inp) {
+                    case 1:
+                        System.out.println("Enter the name of regions :");
+                        String newReg = sc.next();
+                        regions.getRegions().add(newReg);
+                        break;
+                    case 2:
+                        for (int i = 0; i < regions.getRegions().size(); i++) {
+                            System.out.println(regions.getRegions().get(i).toString());
+                        }
+                        break;
+                }
                 break;
         }
     }
@@ -386,8 +399,20 @@ public class Tour {
                 }
                 break;
             case 6:
-                System.out.println("Enter 1 to add a region to a tour");
-                /////////////////////////// TODO
+                System.out.println("Enter 1 to add a region to a tour\nEnter 2 to see regions");
+                int inp = sc.nextInt();
+                switch (inp) {
+                    case 1:
+                        System.out.println("Enter the name of regions :");
+                        String newReg = sc.next();
+                        regions.getRegions().add(newReg);
+                        break;
+                    case 2:
+                        for (int i = 0; i < regions.getRegions().size(); i++) {
+                            System.out.println(regions.getRegions().get(i).toString());
+                        }
+                        break;
+                }
                 break;
         }
     }

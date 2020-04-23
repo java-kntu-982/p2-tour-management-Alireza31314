@@ -27,6 +27,7 @@ public class Admin extends User {
         System.out.println("Successfully Done !");
     }
 
+    @Override
     public String getUserName() {
         return userName;
     }
