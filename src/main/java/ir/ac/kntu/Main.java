@@ -2,7 +2,6 @@ package ir.ac.kntu;
 
 import ir.ac.kntu.maputil.MapUtil;
 import ir.ac.kntu.maputil.Tour;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -214,7 +213,7 @@ public class Main {
                     "|   ■ Enter 1 to see leaders menu             |\n" +
                     "|   ■ Enter 2 to see tours menu               |\n" +
                     "|   ■ Enter 3 for the map features            |\n" +
-                    "|                                             |\n" +
+                    "|   ■ Enter 4 to add or remove a costumer     |\n" +
                     "|                                             |\n" +
                     "|                                             |\n" +
                     " ---------------------------------------------");
@@ -241,6 +240,34 @@ public class Main {
                             System.out.println("\nEnter the destination's location :");
                             String destination = sc.next();
                             MapUtil.showMap(startLoc,destination);
+                            break;
+                    }
+                    break;
+                case 4:
+                    System.out.println("\n\nEnter 1 to add a costumer\nEnter 2 to remove a costumer");
+                    int addRem = sc.nextInt();
+                    switch (addRem) {
+                        case 1:
+                            System.out.println("Enter costumer's username :");
+                            String cosUser = sc.next();
+                            System.out.println("Enter costumer's password :");
+                            String cosPass = sc.next();
+                            System.out.println("Enter costumer's email :");
+                            String cosEmail = sc.next();
+                            System.out.println("Enter costumer's mobile :");
+                            String cosMobile = sc.next();
+                            Costumer newCos = new Costumer(cosUser,cosPass,cosEmail,cosMobile);
+                            costumers.add(newCos);
+                            System.out.println("Successfully Done !");
+                            break;
+                        case 2:
+                            for (int i = 0; i < costumers.size(); i++) {
+                                System.out.println((i + 1) +"-" + costumers.get(i).toString());
+                            }
+                            System.out.println("Enter the number of costumer yo want them to be removed :");
+                            int remove = sc.nextInt() - 1;
+                            costumers.remove(remove);
+                            System.out.println("Successfully Done !");
                             break;
                     }
                     break;

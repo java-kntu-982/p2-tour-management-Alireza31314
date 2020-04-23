@@ -1,7 +1,5 @@
 package ir.ac.kntu;
 
-import ir.ac.kntu.maputil.Tour;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.regex.Pattern;
